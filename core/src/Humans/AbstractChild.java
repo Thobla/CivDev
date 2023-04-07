@@ -2,13 +2,18 @@ package Humans;
 
 import com.badlogic.gdx.graphics.Texture;
 
+import World.World;
 import WorldObjects.House;
 
 public abstract class AbstractChild extends AbstractHuman implements IChild{
 
-	AbstractChild(House home) {
-		super(home);
-		// TODO Auto-generated constructor stub
+	AbstractChild(House home, int birthYear, String birthMonth, World world) {
+		super(home, birthYear, birthMonth, world);
 	}
+
+	public void update() {
+		super.update();
+	}
+	
 
 }

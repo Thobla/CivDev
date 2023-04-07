@@ -2,21 +2,23 @@ package Humans;
 
 import com.badlogic.gdx.graphics.Texture;
 
+import World.World;
 import WorldObjects.House;
 
 public abstract class AbstractMale extends AbstractHuman implements IMale{
 	
-	Texture texture = new Texture("house.jpg");
 	
-	AbstractMale(House home) {
-		super(home);
-		this.texture = new Texture("house.jpg");
-		
-		// TODO Auto-generated constructor stub
+	
+	
+	AbstractMale(House home, int birthYear, String birthMonth, World world) {
+		super(home, birthYear, birthMonth, world);
 	}
+
 	public void update(){
-		posX += 1;
+		super.update();
 	}
+	
+	
 	
 
 }

@@ -1,9 +1,10 @@
 package World;
 
+
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import Humans.AbstractEntity;
-import Humans.Male;
+import Map.MapDrawing;
 import Map.TileMapManager;
 import WorldObjects.*;
 import StaticData.StaticVariables;
@@ -14,33 +15,29 @@ public class World {
 	private EntityManager entityManager = new EntityManager();
 	private Clock clock = new Clock();
 
-	private TileMapManager tileMapManager = new TileMapManager(objectManager, entityManager);
-	/**private EntityManager entityManager = new EntityManager();**/
+	public TileMapManager tileMapManager = new TileMapManager(objectManager, entityManager);
+	
+	private MapDrawing mapDrawing = new MapDrawing(tileMapManager, clock);
 	
 	public void start() {
-		for (int i = 0; i < StaticVariables.mapHeight; i++) {
-			for (int j = 0; j < StaticVariables.mapWidth; j++) {
-				House house = new House(j, i);
-				tileMapManager.buildObject(j, i, house); //adds a house to the tile map
-				Male male = new Male(house);
-				tileMapManager.createEntity(male);
-			}	
-		}
-		
-		
-		
-		
+		mapDrawing.draw(this);
+		StaticVariables.harvestableResources();
+		StaticVariables.worldObjectList();
 	}
 	
 	public void update(Batch batch) {
 		batch.begin();
+		
 		for (WorldObject elem : objectManager.getObjectList()){
 			float tileSize = StaticVariables.tileSize;
-			batch.draw(elem.texture, elem.posX * tileSize, elem.posY * tileSize, tileSize, tileSize);
+			batch.draw(elem.getTexture(), elem.posX * tileSize, elem.posY * tileSize, tileSize, tileSize);
 		}
 		for (AbstractEntity entity : entityManager.getEntityList()){
+			
 			float tileSize = StaticVariables.tileSize;
-			batch.draw(entity.texture, entity.posX * tileSize + tileSize/4, entity.posY + tileSize/4, tileSize/2, tileSize/2);
+			batch.draw(entity.getTexture(), entity.posX + tileSize/4, entity.posY + tileSize/4, tileSize/2, tileSize/2);
+			
+			entity.update();
 		}
 		batch.end();
 		
@@ -51,7 +48,6 @@ public class World {
 			
 			
 		}
-		System.out.println(" minute: " + clock.minute + " hour: " + clock.hour + " day: " + clock.day + " month: " + clock.month + " year: " + clock.year);
 		clock.count();
 		
 		

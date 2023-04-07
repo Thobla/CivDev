@@ -66,5 +66,13 @@ public class Clock {
 	}
 	
 	
+	public int getYear() {
+		return year;
+	}
+	
+	public String getMonth() {
+		return month;
+	}
+	
 	
 }

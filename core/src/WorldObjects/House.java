@@ -5,7 +5,7 @@ import java.util.HashMap;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 
-import StaticData.StaticVariables;
+import StaticData.*;
 public class House extends WorldObject{
 	
 	HashMap<String, Integer> storage = new HashMap<String, Integer>();
@@ -19,10 +19,23 @@ public class House extends WorldObject{
 		storage.put("capacity", initCapacity);
 	}
 	
-	public House(int yTile, int xTile) {
+	
+	public House(int posX, int posY) {
+		super(posX, posY);
 		initStorage();
-		this.posY = yTile;
-		this.posX = xTile;
-		this.texture = new Texture("house.jpg");
 	}
+
+	@Override
+	public Texture getTexture() {
+		
+		return Textures.textureHouse;
+	}
+
+
+	@Override
+	public String getName() {
+		return "House";
+	}
+
+	
 }
