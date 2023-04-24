@@ -4,14 +4,17 @@ import com.badlogic.gdx.graphics.Texture;
 
 public abstract class AbstractResourceSource extends WorldObject{
 	
-	AbstractResourceSource(int posX, int posY) {
-		super(posX, posY);
-	}
-
-
 	protected int maxCapacity;
 	protected int remaining;
 	protected boolean notEmpty;
+	
+	AbstractResourceSource(int posX, int posY) {
+		super(posX, posY);
+	}
+	
+	public int getRemaining() {
+		return remaining;
+	}
 	
 	
 	/**
@@ -21,10 +24,10 @@ public abstract class AbstractResourceSource extends WorldObject{
 	 */
 	public int harvest(int amount) {
 		if (amount >= remaining) {
-			System.out.println("harvesting");
+			int beforeHarvest = remaining;
 			remaining = 0;
 			notEmpty = false;
-			return remaining;
+			return beforeHarvest;
 		}
 		else {
 			remaining -= amount;

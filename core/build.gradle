@@ -1,6 +1,14 @@
 sourceCompatibility = 1.7
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
+repositories { mavenCentral() }
+
 sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.test.java.srcDirs = [ "Test/" ]
 
 eclipse.project.name = appName + "-core"
+
+dependencies{
+
+	
+}

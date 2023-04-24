@@ -33,4 +33,17 @@ public class StaticVariables {
 		return objects;
 	}
 	
+	//WorldObjects
+	public static int goldMineCapacity = 100;
+	public static int berryBushCapacity = 100;
+	public static int forestCapacity = 100;
+	
+	//RenewableResource
+	public static double berryGrowRate = 0.01;
+	public static double forestGrowRate = 0.01;
+	
+	//Clock
+	public static int clockSpeed = 12;
+	
+	
 }

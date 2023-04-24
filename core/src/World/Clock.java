@@ -3,9 +3,8 @@ package World;
 import java.util.HashMap;
 
 public class Clock {
-	int minute = 0;
 	int hour = 0;
-	int day = 0;
+	int day = 1;
 	String month;
 	int year = 0;
 	
@@ -25,17 +24,17 @@ public class Clock {
 		months.put("november", 31);
 		months.put("december", 31);
 	}
-	Clock(){
+	public Clock(){
 		initMonths();
 	}
 	
-	public void count() {
-		hour += 12;
+	public void count(int amount) {
+		hour += amount;
 		updateDay();
 	}
 	
 	private void updateDay() {
-		if (hour >= 12) {
+		if (hour >= 24) {
 			day += 1;
 			hour = 0;
 			updateMonth();
@@ -44,7 +43,7 @@ public class Clock {
 	private void updateMonth() {
 		if (day > months.get(month)) {
 			nextMonth();
-			day = 0;
+			day = 1;
 		}
 	}
 	private void nextMonth() {
@@ -72,6 +71,14 @@ public class Clock {
 	
 	public String getMonth() {
 		return month;
+	}
+	
+	public int getDay() {
+		return day;
+	}
+	
+	public int getHour() {
+		return hour;
 	}
 	
 	

@@ -9,11 +9,10 @@ buildscript {
         google()
     }
     dependencies {
+		
         classpath 'org.wisepersist:gwt-gradle-plugin:1.1.16'
         classpath 'org.gretty:gretty:3.0.7'
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.16'
-        
-
     }
 }
 
@@ -40,6 +39,14 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
         maven { url "https://jitpack.io" }
     }
+    
+    dependencies {
+    	testImplementation 'org.mockito:mockito-core:5.2.0'
+		testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    
+    }
+    
+    
 }
 
 project(":desktop") {
@@ -87,7 +94,8 @@ project(":html") {
 
 project(":core") {
     apply plugin: "java-library"
-
+    
+    
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"

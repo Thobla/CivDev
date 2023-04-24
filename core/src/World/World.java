@@ -28,6 +28,7 @@ public class World {
 	public void update(Batch batch) {
 		batch.begin();
 		
+		//TODO make into objectManagers update function
 		for (WorldObject elem : objectManager.getObjectList()){
 			float tileSize = StaticVariables.tileSize;
 			batch.draw(elem.getTexture(), elem.posX * tileSize, elem.posY * tileSize, tileSize, tileSize);
@@ -41,14 +42,14 @@ public class World {
 		}
 		batch.end();
 		
-		if (clock.minute == 0) {
+		if (clock.getHour() == 0) { //TODO This should be altered
 			for (AbstractEntity entity : entityManager.getEntityList()){
 				entity.update();
 			}
 			
 			
 		}
-		clock.count();
+		clock.count(StaticVariables.clockSpeed);
 		
 		
 	}

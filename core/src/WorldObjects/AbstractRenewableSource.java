@@ -23,6 +23,20 @@ public abstract class AbstractRenewableSource extends AbstractResourceSource{
 				notEmpty = true;
 			}
 		}
-		
 	}
+	@Override
+	public int harvest(int amount){
+		if (amount >= remaining) {
+			actualRemaining = 0;
+		}
+		else {
+			actualRemaining -= amount;
+		}
+		return super.harvest(amount);
+	}
+	
+	public double getActualRemaining() {
+		return actualRemaining;
+	}
+	
 }
