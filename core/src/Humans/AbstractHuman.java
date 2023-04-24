@@ -56,9 +56,7 @@ public abstract class AbstractHuman extends AbstractEntity{
 	
 	
 	@Override
-	public void update() {
-		moveTowardsClosest("BerryBush");
-	}
+	public abstract void update();
 	
 	@Override
 	public Texture getTexture() {

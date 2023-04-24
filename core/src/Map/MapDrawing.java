@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Humans.Male;
+import Humans.Human;
 import StaticData.StaticVariables;
 import World.Clock;
 import World.World;
@@ -71,7 +71,7 @@ public class MapDrawing {
 				case 'H':
 					House house = new House(i, j);
 					tileMapManager.buildObject(i, j, house);
-					tileMapManager.createEntity(new Male(house, clock.getYear(), clock.getMonth(), world));
+					tileMapManager.createEntity(new Human(house, clock.getYear(), clock.getMonth(), world));
 					
 					break;
 				case 'F':
