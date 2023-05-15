@@ -7,13 +7,14 @@ package Humans;
  *
  */
 public class HumanStateInator {
-	public GatherState gatherState = new GatherState();
-	public FornicationState fornState = new FornicationState();
-	public SleepState sleepState = new SleepState();
-	public BuildState buildState = new BuildState();
-	public PregnantState pregState = new PregnantState();
-	public HumanBaseState currentState;
+	//public GatherState gatherState = new GatherState();
+	//public FornicationState fornState = new FornicationState();
+	//public EatState eatState = new EatState();
+	//public BuildState buildState = new BuildState();
+	//public PregnantState pregState = new PregnantState();
+	//public HumanBaseState currentState;
 	private Human human;
+	//public HumanStateChanger statePriority = new HumanStateChanger();
 	
 	HumanStateInator(Human human){
 		this.human = human;
@@ -24,7 +25,7 @@ public class HumanStateInator {
 	 * @param human
 	 */
 	public void onStart(Human human) {
-		currentState = sleepState;
+		//currentState = eatState;
 		this.human = human;
 	}
 	
@@ -33,16 +34,16 @@ public class HumanStateInator {
 	 * @param state
 	 */
 	public void changeState(HumanBaseState state) {
-		currentState.exitState(this);
-		currentState = state;
-		currentState.enterState(this);
+		//currentState.exitState(this);
+		//currentState = state;
+		//currentState.enterState(this);
 	}
 	
 	/**
 	 * method to run each update
 	 */
 	public void updateState() {
-		currentState.updateState(this);
+		//currentState.updateState(this);
 	}
 	
 	

@@ -13,6 +13,8 @@ public class StaticVariables {
 	public static int backpackSize = 100; //max items in backpack
 	public static int baseMoveSpeed = 1;
 	
+	public static int eatAmount = 1;
+	
 	public static ArrayList<String> harvestableResources = harvestableResources();
 	public static ArrayList<String> worldObjectList = worldObjectList();
 	

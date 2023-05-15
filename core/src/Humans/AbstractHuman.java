@@ -48,10 +48,16 @@ public abstract class AbstractHuman extends AbstractEntity{
 	/**
 	 * @param satiatingLevel - the amount of fullness it gives by eating
 	 * the human eats gaining fullness
+	 * @return 
 	 */
-	private void eat(int satiatingLevel) {
-		if (fullness + satiatingLevel > maxFullness) { fullness = maxFullness; }
-		else { fullness += satiatingLevel; }
+	public boolean eat() {
+		if (fullness >= maxFullness){
+			return true;
+		}
+		else {
+			fullness += StaticVariables.eatAmount;
+			return false;
+		}
 	}
 	
 	

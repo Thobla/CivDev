@@ -1,6 +1,10 @@
 package Humans;
-
-public class SleepState extends HumanBaseState{
+/**
+ * Class that keeps track of which state to change to next
+ * @author thorg
+ *
+ */
+public class HumanStateChanger extends HumanBaseState{
 
 	@Override
 	public void enterState(HumanStateInator inator) {
@@ -19,5 +23,5 @@ public class SleepState extends HumanBaseState{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 }
